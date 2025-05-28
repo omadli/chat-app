@@ -1,0 +1,136 @@
+/* chat/static/admin/css/chat_styles.css */
+
+.admin-chat-container {
+    font-family: Arial, sans-serif; /* Consider var(--font-family-sans-serif) if available */
+    padding: 15px;
+    background-color: var(--module-bg, #f0f2f5); /* Fallback for older Django or if var not set */
+    border: 1px solid var(--border-color, #e0e0e0);
+    border-radius: 8px;
+    max-height: 600px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    color: var(--body-fg, #333); /* Default text color for the container */
+}
+
+.admin-chat-message-wrapper {
+    /* ... (no color changes needed here directly) ... */
+    display: flex;
+    margin-bottom: 12px;
+    max-width: 100%;
+}
+.admin-chat-message-wrapper.user-a {
+    justify-content: flex-end;
+}
+.admin-chat-message-wrapper.user-b {
+    justify-content: flex-start;
+}
+
+.admin-chat-message {
+    padding: 10px 15px;
+    border-radius: 18px;
+    max-width: 75%;
+    word-wrap: break-word;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Shadow might need dark mode adjustment if too harsh */
+    color: var(--body-fg, #222); /* Ensure text inside bubbles is readable */
+}
+
+.admin-chat-message.user-a {
+    /* For user A, you might want a color that works in both modes, or define dark mode specific */
+    background-color: var(--admin-chat-bubble-user-a-bg, #dcf8c6); /* Custom variable we can define later */
+    border-bottom-right-radius: 5px;
+    /* Text color might need to be darker if bubble is very light, or lighter if bubble is dark */
+    color: var(--admin-chat-bubble-user-a-fg, #1f2937); /* Darker text for light green bubble */
+}
+
+.admin-chat-message.user-b {
+    background-color: var(--admin-chat-bubble-user-b-bg, #ffffff); /* Custom variable */
+    border: 1px solid var(--border-color, #e9e9eb);
+    border-bottom-left-radius: 5px;
+    color: var(--admin-chat-bubble-user-b-fg, #1f2937); /* Darker text for white bubble */
+}
+
+.admin-message-sender {
+    font-size: 0.8em;
+    font-weight: bold;
+    color: var(--link-fg, #555); /* Use link color for sender name */
+    margin-bottom: 4px;
+}
+/* .admin-chat-message.user-b .admin-message-sender {
+     display: block;
+     color: var(--primary, #007bff); /* Use primary theme color */
+/* } */
+
+.admin-message-content p {
+    margin: 0 0 5px 0;
+    line-height: 1.4;
+    font-size: 0.95em;
+    white-space: pre-wrap;
+    color: inherit; /* Inherit from .admin-chat-message */
+}
+
+.admin-message-image img {
+    /* ... (no color changes needed) ... */
+    max-width: 100%;
+    max-height: 250px;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+    margin-top: 8px;
+    border: 1px solid var(--border-color, #eee);
+}
+
+.admin-message-meta {
+    font-size: 0.75em;
+    color: var(--text-muted, #888); /* A common variable for muted text */
+    text-align: right;
+    margin-top: 5px;
+}
+/* Specific meta colors for user A/B if needed, but var(--text-muted) is often good enough */
+/* .admin-chat-message.user-a .admin-message-meta { color: var(--admin-chat-meta-user-a-fg, #668d5a); } */
+/* .admin-chat-message.user-b .admin-message-meta { color: var(--admin-chat-meta-user-b-fg, #999); } */
+
+
+.admin-message-reply-info {
+    font-size: 0.85em;
+    color: var(--body-fg, #555);
+    background-color: var(--admin-chat-reply-bg, rgba(0,0,0,0.05)); /* Needs dark mode adjustment */
+    border-left: 3px solid var(--text-muted, #a0a0a0);
+    padding: 6px 10px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+}
+.admin-message-reply-info .reply-sender { font-weight: bold; color: inherit; }
+.admin-message-reply-info .reply-content { font-style: italic; color: inherit; }
+
+/* Dark Mode Specific Overrides for Custom Bubble Colors */
+@media (prefers-color-scheme: dark) {
+    .admin-chat-container {
+        /* Ensure overrides if Django's default vars aren't perfect for this component */
+        background-color: var(--module-bg, #2a2f32); /* Example dark module bg */
+        border-color: var(--border-color, #444);
+        color: var(--body-fg, #ccc);
+    }
+
+    .admin-chat-message.user-a {
+        background-color: var(--admin-chat-bubble-user-a-bg-dark, #075e54); /* Darker green, like WhatsApp dark sent */
+        color: var(--admin-chat-bubble-user-a-fg-dark, #e1ffc7); /* Lighter text */
+    }
+    .admin-chat-message.user-b {
+        background-color: var(--admin-chat-bubble-user-b-bg-dark, #343a40); /* Dark grey bubble for received */
+        color: var(--admin-chat-bubble-user-b-fg-dark, #f8f9fa); /* Light text */
+        border-color: var(--border-color-dark, #555);
+    }
+    .admin-message-meta {
+        color: var(--text-muted-dark, #aaa);
+    }
+    /* .admin-chat-message.user-a .admin-message-meta { color: var(--admin-chat-meta-user-a-fg-dark, #a0c89a); } */
+    /* .admin-chat-message.user-b .admin-message-meta { color: var(--admin-chat-meta-user-b-fg-dark, #777); } */
+
+
+    .admin-message-reply-info {
+        background-color: var(--admin-chat-reply-bg-dark, rgba(255,255,255,0.08));
+        border-left-color: var(--text-muted-dark, #777);
+        color: var(--body-fg, #ccc); /* Ensure text in reply info is readable */
+    }
+}

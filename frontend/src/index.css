@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.highlight-message .chat-bubble {
+  animation: pulse-bg-highlight 1.5s ease-in-out;
+}
+
+@keyframes pulse-bg-highlight {
+  0% {
+    background-color: var(--bubble-background, transparent);
+  }
+  50% {
+    background-color: oklch(var(--p, 0.627 0.165 258.54) / 0.15);
+  }
+  100% {
+    background-color: var(--bubble-background, transparent);
+  }
+}

@@ -1,4 +1,5 @@
 import os
+import sys
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
@@ -82,6 +83,10 @@ DATABASES = {
     }
 }
 
+import sys
+if 'test' in sys.argv:
+    DATABASES['default'] = DATABASES['test']
+    
 
 AUTH_PASSWORD_VALIDATORS = [
     {

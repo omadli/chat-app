@@ -76,6 +76,10 @@ ASGI_APPLICATION = "src.asgi.application"
 
 DATABASES = {
     "default": dj_database_url.config(conn_max_age=600, ssl_require=False),
+    "test": {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': ':memory:'
+    }
 }
 
 

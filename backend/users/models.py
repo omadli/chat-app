@@ -74,7 +74,7 @@ class UserProfile(models.Model):
         upload_to="profile_pics/",
         null=True,
         blank=True,
-        default="profile_pics/default_avatar.png",
+        default="default/default_avatar.png",
     )
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     bio = models.CharField(blank=True, max_length=255, null=True)

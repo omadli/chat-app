@@ -137,4 +137,7 @@ cython_debug/
 
 # media and static files
 staticfiles_collected
-media
+
+# media/message_images
+message_images
+profile_pics

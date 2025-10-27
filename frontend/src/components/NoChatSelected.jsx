@@ -16,7 +16,7 @@ const NoChatSelected = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl font-bold">Welcome to TUITchat!</h2>
+        <h2 className="text-2xl font-bold">Welcome to Davranet!</h2>
         <p className="text-base-content/60">
           Select a conversation from the sidebar to start chatting
         </p>

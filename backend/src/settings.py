@@ -183,6 +183,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://tuitchat.uz",
+    "https://www.tuitchat.uz",
 ]
 
 CSRF_COOKIE_SAMESITE = "Lax"
@@ -194,6 +195,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
     "http://127.0.0.1:5173",
     "https://tuitchat.uz",
+    "https://www.tuitchat.uz",
 ]
 
 REDIS_URL = os.environ.get("REDIS_URL", "redis://localhost:6379/0")
